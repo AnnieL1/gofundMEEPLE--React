@@ -6,6 +6,11 @@ import ProjectPage from './pages/ProjectPage';
 import LoginPage from './pages/LoginPage';
 import UsersPage from './pages/UsersPage';
 import UsersDetailPage from './pages/UsersDetailPage';
+import CreatedProjectPage from './pages/CreatedProjectPage';
+import PledgePage from './pages/PledgePage';
+import LogoutPage from './pages/LogoutPage';
+import StretchGoalPage from './pages/StretchGoalPage';
+
 
 const HeaderLayout = () => {
   return (
@@ -39,6 +44,22 @@ const router = createBrowserRouter([
       {
         path: '/users/:id',
         element: <UsersDetailPage />,
+      },
+      {
+        path: '/project',
+        element: <CreatedProjectPage />,
+      },
+      {
+        path: '/pledges',
+        element: <PledgePage />,
+      },
+      {
+        path: '/logout',
+        element: <LogoutPage />,
+      },
+      {
+        path: '/stretch_goals',
+        element: <StretchGoalPage />,
       },
     ]
   }

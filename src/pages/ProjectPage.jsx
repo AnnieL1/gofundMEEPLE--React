@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-// import { oneProject } from "../data";
+import { useParams, useNavigate } from "react-router-dom";
+
 
 function ProjectPage() {
     const [projectData, setProjectData] = useState({pledges: []})
@@ -28,7 +28,17 @@ function ProjectPage() {
         })
     }, []);
 
+    const navigate = useNavigate();
 
+    const handleSubmitPledge = (event) => {
+        event.preventDefault();
+        navigate('/pledges');
+    };
+
+    const handleSubmitStretchGoal = (event) => {
+        event.preventDefault();
+        navigate('/stretch_goals');
+    };
 
     return (
         <div>
@@ -41,19 +51,18 @@ function ProjectPage() {
             <h3>Funding goal: {projectData.goal}</h3>
             <h3>How much needs to be raised for pledgee stretch goal to be unlocked!!! {projectData.stretchgoal_trigger}</h3>
             <h3>Total pledged amount: {projectData.total_pledge_amount}</h3>
-            <h3>Funding reached: {`Status: ${projectData.funding_reached}`}</h3>
-        	"pledges": [
+            <h3>Funding reached: {`${projectData.funding_reached}`}</h3>
             <h3>Created at: {projectData.date_created}</h3>
             <h3>{`Status: ${projectData.is_open}`}</h3>
             <h3>Pledges:</h3>
             <ul>
-                {projectData.pledges?.map((pledgeData, key) => {
-                    return <li>{pledgeData.amount}</li>;
+                {projectData.pledges.map((pledgeData, key) => {
+                    return <li key={key}>{pledgeData.amount}</li>;
                 })}
             </ul>
-            <a href="https://react.school" target="_blank">
-                <button type="submit"> Make a pledge </button>
-            </a>
+            <button type="submit" onClick={handleSubmitPledge}>Make your pledge!</button>
+            <button type="submit" onClick={handleSubmitStretchGoal}>Submit your stretch goal!</button>
+
         </div>
     )
 };

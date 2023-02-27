@@ -18,10 +18,11 @@ const HomePage = () => {
 
     return (
         <div>
+            <div>
             {projectList.map((projectData, key) => {
-                // return <div key={key}>{projectData.title}</div>;
                 return <ProjectCard key={key} projectData={projectData} />
             })}
+            </div>
         </div>
     );
 };
