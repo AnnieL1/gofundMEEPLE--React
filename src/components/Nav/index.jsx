@@ -1,20 +1,27 @@
 import React, {useState, useEffect }from 'react';
 import {Link,useParams} from 'react-router-dom';
 import './index.css';
-// import UsersDetailPage from ".../pages/UsersDetailPage"
+
+//use context instead to get "welcome {username}"
 
 function Nav() {
-    const [usersData, setUsersData] = useState([])
+//     const [usersData, setUsersData] = useState();
+//     const { id } = useParams();
 
-    useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}users`) 
-        .then((results) => {
-            return results.json();
-        })
-        .then((data) => {
-            setUsersData(data)
-        })
-    }, []);
+//     useEffect(() => {
+//         if (!id) {
+//             return
+//         }
+//         fetch(`${import.meta.env.VITE_API_URL}users/${id}`) 
+//         .then((results) => {
+//             return results.json();
+//         })
+//         .then((data) => {
+//             setUsersData(data);
+//         });
+//     }, [id]);
+
+
 
     return (
         <div className="webpage-padding">
@@ -22,14 +29,13 @@ function Nav() {
                 <Link to='/' className="nav">Home</Link>
                 {/* <Link to='/project/:id'>Project</Link> */}
                 <Link to='/users' className="nav">User Account</Link>
+                <Link to='/stretch_goals' className="nav">Stretch Goals</Link>
                 <Link to='/login' className="nav">Login</Link>
                 <Link to='/logout' className="nav">Logout</Link>
-
-
             </div>
-            <div>
-                <h3>You are logged in as {usersData.username}</h3>
-            </div>
+            {/* <div>
+                {usersData !== undefined ? <h3>You are logged in as {usersData.username} </h3> : <h3>Welcome!</h3> } 
+            </div> */}
             <div className="logo-and-title">
                 <a href="/">
                     <img id="logo" src="/image/logo_dice.png" alt="gofundMEEPLE logo where there are two die" />

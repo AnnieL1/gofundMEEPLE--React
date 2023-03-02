@@ -4,23 +4,15 @@ import LoginForm from '../components/LoginForm';
 // function LoginPage () {
 //     return (
 //         <LoginForm />
-//         // <div>
-//         //     {/* Nav bar */}
-//         //     if (window.localStorage.response.token) {
-//         //         <LoginForm />
-//         //     } else {
-//         //         // Error component
-//         //     }
-//         // </div>
-//     )
-// };
 
-// export default LoginPage;
+
+//// to join the login form and login page together put all the function (ie. conts) code from the login page here. For the return part, put replace the return from the login form in the " <LoginForm />" section of this page.
+
 
 const LoginPage = () => {
     const token = window.localStorage.getItem("token")
     // console.log( token !== null)
-    return token !== undefined && token !== null ? <LoginForm /> :    
+    return token == undefined && token == null ? <LoginForm /> :    
         <h1>You are already logged in! </h1>
 };
 

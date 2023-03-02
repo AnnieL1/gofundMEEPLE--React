@@ -40,6 +40,11 @@ function ProjectPage() {
         navigate('/stretch_goals');
     };
 
+    const handleSeeStretchGoal = (event) => {
+        event.preventDefault();
+        navigate(`/stretch_goals/${id}`);
+    };
+
     return (
         <div>
             <h2> {projectData.title}</h2>
@@ -62,6 +67,7 @@ function ProjectPage() {
             </ul>
             <button type="submit" onClick={handleSubmitPledge}>Make your pledge!</button>
             <button type="submit" onClick={handleSubmitStretchGoal}>Submit your stretch goal!</button>
+            <button type="submit" onClick={handleSeeStretchGoal}>See all the stretch goal here</button>
 
         </div>
     )

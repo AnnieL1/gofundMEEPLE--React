@@ -9,7 +9,9 @@ import UsersDetailPage from './pages/UsersDetailPage';
 import CreatedProjectPage from './pages/CreatedProjectPage';
 import PledgePage from './pages/PledgePage';
 import LogoutPage from './pages/LogoutPage';
+import StretchGoalForm from './components/StretchGoalForm';
 import StretchGoalPage from './pages/StretchGoalPage';
+import ErrorPage from './pages/ErrorPage';
 
 
 const HeaderLayout = () => {
@@ -21,6 +23,7 @@ const HeaderLayout = () => {
   )
 }
 //PAGES/URLS
+// put something in router to make it call the Error404 page when there is a 404 error
 const router = createBrowserRouter([
   {
     element: <HeaderLayout />,
@@ -59,7 +62,15 @@ const router = createBrowserRouter([
       },
       {
         path: '/stretch_goals',
-        element: <StretchGoalPage />,
+        element: <StretchGoalForm />,
+      },
+      {
+        path: '/stretch_goals/:id',
+        element: <StretchGoalPage/>,
+      },
+      {
+        path: "*",
+        element: <ErrorPage />,
       },
     ]
   }

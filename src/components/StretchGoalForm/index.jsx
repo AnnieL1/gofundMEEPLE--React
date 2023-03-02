@@ -20,23 +20,34 @@ const StretchGoalForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        //above prevents the broswer from doing its own thing and the browswer does what we tell it. Good to put before an onSubmit or any type of button
 
         postData().then((response)=>{
-            navigate('/')
-            console.log(response)
+            if (response !==undefined && response.error) {
+                alert(response.error) 
+            }
+            else {
+                alert("your fanbase goal has been submitted")
+                navigate('/')
+            }
         })
-    };
+    }
 
     const postData = async () => {
+        const token = window.localStorage.getItem("token")
         const response = await fetch(`${import.meta.env.VITE_API_URL}stretch_goals/`, {
             method: "post",
             headers: {
                 "Content-Type": "application/json",
+                "Authorization": `token ${token}`
             },
             body: JSON.stringify(stretchGoal)
         })
+        // console.log(response.status)
         return response.json()
+        // .json turns response into something that makes sense
     };
+
 
 
     return(
