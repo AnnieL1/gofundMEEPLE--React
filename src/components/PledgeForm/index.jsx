@@ -58,7 +58,7 @@ const postData = async () => {
                 <input onChange={handleChange} type = "text" id="supporter" placeholder="Enter supporter"></input> 
             </div> */}
             <div>
-                <label htmlFor="project">Project:</label>
+                <label htmlFor="project">Project ID - can be found on project page:</label>
                 <input onChange={handleChange} type = "project" id="project" placeholder="Enter project"></input> 
             </div>
             <button type="submit" onClick={handleSubmit}>Submit pledge!!</button>

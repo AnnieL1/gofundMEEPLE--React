@@ -22,7 +22,7 @@ const CreateNewUser = () => {
         event.preventDefault();
 
         postData().then((response)=>{
-            navigate('/users')
+            navigate('/login')
             console.log(response)
         })
     };

@@ -5,11 +5,11 @@
   }
   
 #image {
-    width: 400px;
+    width: 600px;
     height: auto;
     margin: 50px;
-    object-fit: contain;
-    /* max-width: 100%; */
+    /* object-fit: contain; */
+    max-width: 100%;
     flex-wrap: wrap;
     display: flex;
     justify-content: space-around;

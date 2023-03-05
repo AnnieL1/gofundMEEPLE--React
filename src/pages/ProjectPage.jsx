@@ -81,7 +81,7 @@ function ProjectPage() {
     return (
         <div className="project-info">
             <h2> {projectData.title}</h2>
-            <h3>Project ID: {projectData.id}</h3>
+            <h3>Project ID: {projectData.id}. Need this to make a pledge.</h3>
             <h3>Description: {projectData.description}</h3>
             <h3>Created at: {projectData.date_created}</h3>
             <h3>Owner: {projectData.owner}</h3>
@@ -100,10 +100,10 @@ function ProjectPage() {
                 })}
             </ul>
             <div>
-                <button className="stretchGoal" type="submit" onClick={handleSeeStretchGoal}>See all the stretch goal here</button>
+                <button className="stretchGoal" type="submit" onClick={handleSeeStretchGoal}><br>See all the stretch goal here</br></button>
                 <p>For pledgees only</p>
-                <button className="pledgee-button" type="submit" onClick={handleSubmitPledge}>Make your pledge!</button>
-                <button className="pledgee-button" type="submit" onClick={handleSubmitStretchGoal}>Submit your stretch goal!</button>
+                <button className="pledgee-button" type="submit" onClick={handleSubmitPledge}><br>Step1: Make your pledge! </br><br>*Project ID is required</br></button>
+                <button className="pledgee-button" type="submit" onClick={handleSubmitStretchGoal}><br>Step 2: Submit your stretch goal!</br><br>*Pledge ID is required</br></button>
                 <p>For the boardgame project creator only</p>
                 <button className="creator-button" type="submit" onClick={editProject}>Edit your project</button>
                 <button className="creator-button" type="submit" onClick={deleteSubmit}>Delete your project</button>
