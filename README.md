@@ -6,7 +6,7 @@ gofundMEEPLE* connects boardgame creators and boardgame enthusiasts together to 
 
 This project has been created in React.js as part of the She Codes Plus bootcamp JavaScript & React module. It involved creating the endpoints and API for a crowdfunding website. The frontend will be built out as part of the JavaScript & React module.
 
-##Features
+## Features
 ```
   1. Nav
       i. Includes instructions on how to use the site, user accounts avaiable, ability to make a new user account, and the ability to log in and out.
@@ -23,7 +23,7 @@ This project has been created in React.js as part of the She Codes Plus bootcamp
       i. POST: Adding 'fan based stretch goal comment'. If Statement included to limit users to adding 1x comment per project if they have made a pledge to that project
 ```
    
- ##Overview: Use React to create a basic working webpage.
+ ## Overview: Use React to create a basic working webpage.
  ``` 
   Submission requirements:
       i. Homepage
