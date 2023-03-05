@@ -25,10 +25,11 @@ const navigate = useNavigate(); // once authenticated go to this place eg. homep
 const handleSubmit = (event) => {
     event.preventDefault();
 
-    postData().then((response)=>{
+    postData().then(()=>{
         // window.localStorage.setItem("token",response.token)
+        alert("Your pledge has been submitted")
         navigate('/')
-        console.log(response)
+        // console.log(response)
     })
 };
 

@@ -2,6 +2,7 @@ import React, {useState, useEffect } from "react";
 // import { useParams } from "react-router-dom";
 // import { oneProject } from "../data";
 import UsersProfileCard from '../components/UsersProfileCard';
+import './UsersPage.css';
 
 
 function UsersPage() {
@@ -19,7 +20,7 @@ function UsersPage() {
     }, []);
 
     return (
-        <div>
+        <div className="users">
             {usersList.map((usersData, key) => {
                 return <UsersProfileCard key={key} usersData={usersData} />
                 // return console.log("this is working")

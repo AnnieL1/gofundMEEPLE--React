@@ -1,0 +1,19 @@
+.project-info {
+    margin-left: 50px;
+    margin-top: -20px;
+}
+
+.pledgee-button {
+    background-color: lightblue;
+    margin: 0px 20px 20px 0px;
+}
+
+.creator-button {
+    background-color: lightsalmon;
+    margin: 0px 20px 20px 0px;
+}
+
+.stretchGoal {
+    background-color: lightgray;
+    margin: 20px 20px 20px 0px;
+}

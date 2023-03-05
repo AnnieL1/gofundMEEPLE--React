@@ -18,7 +18,7 @@ const CreatedProjectPage = () => {
     const token = window.localStorage.getItem("token")
     // console.log( token !== null)
     return token !== undefined && token !== null ? <CreateProjectForm /> :    
-        <h1>You are not logged in </h1>
+        <p>You are not logged in </p>
 };
 
 export default CreatedProjectPage;

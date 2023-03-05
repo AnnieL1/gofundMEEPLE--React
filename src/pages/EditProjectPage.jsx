@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import {useNavigate} from 'react-router-dom';
+import {useNavigate,useParams} from 'react-router-dom';
 
-const CreateProjectForm = () => {
-    const [project, setProject] = useState({
+const EditProjectForm = () => {
+    const [editProject, setEditProject] = useState({
         title: '',
-        description: '', 
+        description: '',
         goal: '',
         stretchgoal_trigger: '', 
         image: '',
@@ -13,11 +13,12 @@ const CreateProjectForm = () => {
         favourite: true,
     });
 
+    const {id} = useParams();
 
     const handleChange = (event) => {
         const { id, value } = event.target;
-        setProject((prevProject) => ({
-            ...prevProject,
+        setEditProject((prevEditProject) => ({
+            ...prevEditProject,
             [id]: value
         }));
     };
@@ -29,51 +30,53 @@ const navigate = useNavigate(); // once authenticated go to this place eg. homep
 const handleSubmit = (event) => {
     event.preventDefault();
 
-    postData().then((response)=>{
+    putData().then((response)=>{
         // window.localStorage.setItem("token",response.token)
         navigate('/')
         console.log(response)
     })
 };
 
-const postData = async () => {
+const putData = async () => {
     const token = window.localStorage.getItem("token")
-    const response = await fetch(`${import.meta.env.VITE_API_URL}projects/`, {
-        method: "post",
+    const response = await fetch(`${import.meta.env.VITE_API_URL}projects/${id}/`, 
+    {
+        method: "put",
         headers: {
             "Content-Type": "application/json",
             "Authorization": `token ${token}`
         },
-        body: JSON.stringify(project)
+        body: JSON.stringify(editProject)
     })
     return response.json() && console.log(response)
 };
 
     return(
         <form>
+            <h3>Edit your project</h3>
             <div>
                 <label htmlFor="title">Title:</label>
-                <input onChange={handleChange} type = "text" id="title" placeholder="Enter title"></input> 
+                <input onChange={handleChange} type = "text" id="title" value={editProject.title}></input> 
             </div>
             <div>
                 <label htmlFor="description">Description:</label>
-                <input onChange={handleChange} type = "text" id="description" placeholder="Enter description"></input> 
+                <input onChange={handleChange} type = "text" id="description" value={editProject.description}></input> 
             </div>
             <div>
                 <label htmlFor="goal">Goal:</label>
-                <input onChange={handleChange} type = "goal" id="goal" placeholder="Enter goal"></input> 
+                <input onChange={handleChange} type = "goal" id="goal" value={editProject.goal}></input> 
             </div>
             <div>
                 <label htmlFor="stretchgoal_trigger">Stretch Goal:</label>
-                <input onChange={handleChange} type = "stretchgoal_trigger" id="stretchgoal_trigger" placeholder="Enter stretch goal"></input> 
+                <input onChange={handleChange} type = "stretchgoal_trigger" id="stretchgoal_trigger" value={editProject.stretchgoal_trigger}></input> 
             </div>
             <div>
                 <label htmlFor="image">Image:</label>
-                <input onChange={handleChange} type = "text" id="image" placeholder="Enter image"></input> 
+                <input onChange={handleChange} type = "text" id="image" value={editProject.image}></input> 
             </div>
-            <button type="submit" onClick={handleSubmit}>Create project!!</button>
+            <button type="submit" onClick={handleSubmit}>Update project details</button>
         </form>
     )
 };
 
-export default CreateProjectForm;
+export default EditProjectForm;

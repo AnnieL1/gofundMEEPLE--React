@@ -1,5 +1,4 @@
 import React from 'react'
-import LogoutForm from '../components/LogoutForm';
 
 // const LogoutPage = () => {
 //     const token = window.localStorage.getItem("token")
@@ -18,7 +17,7 @@ const LogoutPage = () => {
     };
 
     return(
-        <h3>You have successfully logged out</h3>
+        <p>You have successfully logged out</p>
     );
    
 };

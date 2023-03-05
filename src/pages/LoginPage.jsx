@@ -13,7 +13,7 @@ const LoginPage = () => {
     const token = window.localStorage.getItem("token")
     // console.log( token !== null)
     return token == undefined && token == null ? <LoginForm /> :    
-        <h1>You are already logged in! </h1>
+        <p>You are already logged in! </p>
 };
 
 export default LoginPage;

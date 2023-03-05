@@ -1,7 +1,6 @@
 import React, {useState, useEffect } from "react";
 import { useParams,useNavigate } from "react-router-dom";
-// import { oneProject } from "../data";
-import LoginForm from "../components/LoginForm";
+import './UsersDetailPage.css';
 
 function UsersDetailPage() {
     const [usersData, setUsersData] = useState([])
@@ -24,7 +23,7 @@ function UsersDetailPage() {
     };
 
     return (
-        <div>
+        <div className="usersPage">
             <h2> Welcome to your account {usersData.username}</h2>
             <h3>ID: {usersData.id}</h3>
             <h3>Username: {usersData.username}</h3>
@@ -33,7 +32,7 @@ function UsersDetailPage() {
             {/* <a href="`${import.meta.env.VITE_API_URL}users/${id}`" target="_blank">
                 <button type="submit"> Create a new project! </button>
             </a> */}
-            <button type="submit" onClick={handleSubmit}>Create a new project!</button>
+            <button id='button' type="submit" onClick={handleSubmit}>Create a new project!</button>
         </div>
     )
 };

@@ -1,3 +1,16 @@
-.webpage-padding {
-    margin: 20px;
+#title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 50px;
+  }
+  
+#image {
+    width: 400px;
+    height: auto;
+    margin: 50px;
+    object-fit: contain;
+    /* max-width: 100%; */
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
 }

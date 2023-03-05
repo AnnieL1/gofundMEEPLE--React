@@ -1,5 +1,10 @@
 import React, { useState } from "react";
+// import { Alert } from 'react-native';
 import {useNavigate} from 'react-router-dom';
+
+//ToastContainer is an inbuilt library which can be used to make pop up alerts for an OnClick or OnSubmit
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 
 const StretchGoalForm = () => {
@@ -22,14 +27,16 @@ const StretchGoalForm = () => {
         event.preventDefault();
         //above prevents the broswer from doing its own thing and the browswer does what we tell it. Good to put before an onSubmit or any type of button
 
+        //use just 'alert' to get the browser pop-up with inbuilt Django error messages
+        //if using ToastContainer, replace alert with toast.error or toast.success
         postData().then((response)=>{
             if (response !==undefined && response.error) {
-                alert(response.error) 
+                alert(response.error)
             }
             else {
                 alert("your fanbase goal has been submitted")
-                navigate('/')
-            }
+            };
+        navigate('/')
         })
     }
 
@@ -51,17 +58,20 @@ const StretchGoalForm = () => {
 
 
     return(
-        <form>
-            <div>
-                <label htmlFor="pledge">Pledge:</label>
-                <input onChange={handleChange} type = "pledge" id="pledge" placeholder="Enter pledge"></input> 
-            </div>
-            <div>
-                <label htmlFor="fanbased_stretchgoal">Fanbased Stretch Goal:</label>
-                <input onChange={handleChange} type = "fanbased_stretchgoal" id="fanbased_stretchgoal" placeholder="Fanbased Stretch Goal"></input> 
-            </div>
-            <button type="submit" onClick={handleSubmit}>Submit fanbased stretch goal!!</button>
-        </form>
+        <div>
+            {/* <ToastContainer /> */} 
+            <form>
+                <div>
+                    <label htmlFor="pledge">Pledge:</label>
+                    <input onChange={handleChange} type = "pledge" id="pledge" placeholder="Enter pledge"></input> 
+                </div>
+                <div>
+                    <label htmlFor="fanbased_stretchgoal">Fanbased Stretch Goal:</label>
+                    <input onChange={handleChange} type = "fanbased_stretchgoal" id="fanbased_stretchgoal" placeholder="Fanbased Stretch Goal"></input> 
+                </div>
+                <button type="submit" onClick={handleSubmit}>Submit fanbased stretch goal!!</button>
+            </form>
+        </div>
     )
 };
 

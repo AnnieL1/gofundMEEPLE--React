@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 
 
 const StretchGoalPage = () => {
-
+    const token = window.localStorage.getItem("token")
     const [stretchGoals, setStretchGoals] = useState([]);
 
     const {id} = useParams();
@@ -23,10 +23,10 @@ const StretchGoalPage = () => {
             setStretchGoals([data])
         })
     }, []);
-    
+
     return (
         <div>
-            {!stretchGoals[0] ? (
+            {stretchGoals.length <= 0 ? (
                 <p>No one has submitted a stretch goal yet!</p>
             ) : (
                 <ul>
@@ -38,5 +38,20 @@ const StretchGoalPage = () => {
         </div>
     )
 };
+
+// return (
+//     <div>
+//         {!stretchGoals[0] ? (
+//             <p>No one has submitted a stretch goal yet!</p>
+//         ) : (
+//             <ul>
+//                 {stretchGoals.map((stretchGoal, key) => {
+//                     return <li key={key}>{stretchGoal.fanbased_stretchgoal}</li>
+//                 })}
+//             </ul>
+//         )}
+//     </div>
+// )
+// };
 
 export default StretchGoalPage;
