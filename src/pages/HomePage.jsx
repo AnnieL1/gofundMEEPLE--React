@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { allProjects } from '../data';
 import ProjectCard from '../components/ProjectCard';
-import './homepage.css';
+import './HomePage.css';
 
 const HomePage = () => {
     const [projectList, setProjectList] = useState([]);

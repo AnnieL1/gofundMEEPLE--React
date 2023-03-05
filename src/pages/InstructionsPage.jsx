@@ -1,5 +1,5 @@
 import React from 'react';
-import './instructionspage.css';
+import './InstructionsPage.css';
 
 function InstructionsPage() {
     return(
