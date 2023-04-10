@@ -1,10 +1,8 @@
 import React, {useState, useEffect, useContext}from 'react';
-import {Link,useParams} from 'react-router-dom';
+import {Link,useNavigate,useParams} from 'react-router-dom';
 import './index.css';
 
 function Nav() {
-    const [auth, setAuth] = useState()
-
     // const handleSubmit = (event) => {
     //     event.preventDefault();
     //     //above prevents the broswer from doing its own thing and the browswer does what we tell it. Good to put before an onSubmit or any type of button
@@ -19,10 +17,40 @@ function Nav() {
     //     };
     // }
 
+    const ShowLoginAndCreateAccount = window.localStorage.getItem("token") === null;
+    const navigate = useNavigate()
+    const Logout = (event) => {
+        event.preventDefault()
+        localStorage.clear()
+        navigate("/logout")
+    }
+    let LoginStatus;
+    if (ShowLoginAndCreateAccount){
+        LoginStatus = (
+            <div className="webpage-padding">
+                <div className="nav">
+                    <Link to = "/login" className="nav">Login</Link>
+                    <Link to = "/create-new-user" className="nav">Create New User</Link>
+                </div>
+            </div>
+        )
+    }
+    else {
+        LoginStatus = (
+            <div className="webpage-padding">
+                <div className="nav">
+                    <Link to='/instructions-on-how-to-use-website' className="nav">Instructions</Link>
+                    <Link to='/users' className="nav">User Account</Link>
+                    {/* <Link to='/logout' className="nav">Logout</Link> */}
+                    <Link onClick = {Logout} className="nav"> Logout </Link>
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div className="webpage-padding">
-            <div className="nav">
+            {/* <div className="nav">
                 <Link to='/' className="nav">Home</Link>
                 <Link to='/instructions-on-how-to-use-website' className="nav">Instructions</Link>
                 <Link to='/users' className="nav">User Account</Link>
@@ -31,8 +59,11 @@ function Nav() {
                 <Link to='/logout' className="nav">Logout</Link>
             </div>
             <div>
-                {/* <p>Welcome to the site {unc}</p> */}
-                {/* {usersData !== undefined ? <h3>You are logged in as {usersData.username} </h3> : <h3>Welcome!</h3> }  */}
+                <p>Welcome to the site {unc}</p>
+                {usersData !== undefined ? <h3>You are logged in as {usersData.username} </h3> : <h3>Welcome!</h3> } 
+            </div> */}
+            <div>
+                { LoginStatus }
             </div>
             <div className="logo-and-title">
                 <a href="/">

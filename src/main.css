@@ -1,0 +1,13 @@
+.form {
+    margin: 100px !important;
+    padding: 2rem;
+    font-size: large;
+}
+
+.form-design {
+    margin-top: 20px;
+}
+
+.error-page-drawing {
+    height: 50px;    /* width:auto; */
+}

@@ -35,23 +35,24 @@ const CreateNewUser = () => {
             },
             body: JSON.stringify(newUser)
         })
+        console.log(newUser)
         return response.json()
     };
 
     return(
         <div>
-            <form>
-                <div>
-                    <label htmlFor="username">Username:</label>
-                    <input onChange={handleChange} type = "username" id="username" placeholder="Enter username"></input> 
+            <form className="form">
+                <div className="form-design">
+                    <label className="form-design" htmlFor="username">Username:</label>
+                    <input className="form-design" onChange={handleChange} type = "username" id="username" placeholder="Enter username"></input> 
                 </div>
-                <div>
-                    <label htmlFor="password">Password:</label>
-                    <input onChange={handleChange} type = "password" id="password" placeholder="Password"></input> 
+                <div className="form-design">
+                    <label className="form-design" htmlFor="password">Password:</label>
+                    <input className="form-design" onChange={handleChange} type = "password" id="password" placeholder="Password"></input> 
                 </div>
-                <div>
-                    <label htmlFor="email">Email:</label>
-                    <input onChange={handleChange} type = "email" id="email" placeholder="email"></input> 
+                <div className="form-design">
+                    <label className="form-design" htmlFor="email">Email:</label>
+                    <input className="form-design" onChange={handleChange} type = "email" id="email" placeholder="email"></input> 
                 </div>
                 <button type="submit" onClick={handleSubmit}>Click here to create your user</button>
             </form>

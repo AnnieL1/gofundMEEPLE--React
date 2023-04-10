@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import {useNavigate} from 'react-router-dom';
 
-const PledgeForm = () => {
+const PledgeForm = (props) => {
+    const {id} = props;
     const [pledge, setPledge] = useState({
         amount: '',
         anonymous: false, 
         supporter: '',
-        project: '',
+        project: id,
     });
 
 
@@ -24,11 +25,11 @@ const navigate = useNavigate(); // once authenticated go to this place eg. homep
 
 const handleSubmit = (event) => {
     event.preventDefault();
-
+    const {id} = props;
     postData().then(()=>{
         // window.localStorage.setItem("token",response.token)
-        alert("Your pledge has been submitted")
-        navigate('/')
+        alert(`Your pledge has been submitted.`)
+        navigate(`/project/${id}`)
         // console.log(response)
     })
 };
@@ -48,7 +49,7 @@ const postData = async () => {
 
 
     return(
-        <form>
+        <form className="form">
             <div>
                 <label htmlFor="amount">Amount:</label>
                 <input onChange={handleChange} type = "text" id="amount" placeholder="Enter amount"></input> 
@@ -57,10 +58,10 @@ const postData = async () => {
                 <label htmlFor="supporter">Supporter:</label>
                 <input onChange={handleChange} type = "text" id="supporter" placeholder="Enter supporter"></input> 
             </div> */}
-            <div>
+            {/* <div>
                 <label htmlFor="project">Project ID - can be found on project page:</label>
                 <input onChange={handleChange} type = "project" id="project" placeholder="Enter project"></input> 
-            </div>
+            </div> */}
             <button type="submit" onClick={handleSubmit}>Submit pledge!!</button>
         </form>
     )

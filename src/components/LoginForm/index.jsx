@@ -27,7 +27,7 @@ const handleSubmit = (event) => {
         window.localStorage.setItem("token", response.token);
         // console.log(response)
         navigate('/');
-       })
+       }).catch(() => {window.alert("Your credentials are incorrect. Please try again")})
     }
     // if (credentials.username && credentials.passwoxrd) {
     //     console.log("you have entered incorrect detail")
@@ -40,23 +40,26 @@ const postData = async () => {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(credentials)
-    })
-    return response.json()
+        body: JSON.stringify(credentials),
+    });
+    if (response.status === 200){
+        return response.json();
+    }
+    throw new Error();
 };
 
     return(
         <form>
-            <div>
+            <div className="form">
                 <label htmlFor="username">Username:</label>
                 <input onChange={handleChange} type = "text" id="username" placeholder="Enter user name"></input> 
             </div>
-            <div>
+            <div className="form">
                 <label htmlFor="password"> Password:</label>
                 <input onChange={handleChange} type = "password" id="password" placeholder="Enter password"></input> 
             </div>
 
-            <button type="submit" onClick={handleSubmit}>Login</button>
+            <button className="form" type="submit" onClick={handleSubmit}>Login</button>
         </form>
     )
 };

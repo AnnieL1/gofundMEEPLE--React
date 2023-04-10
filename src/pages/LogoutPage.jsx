@@ -17,7 +17,7 @@ const LogoutPage = () => {
     };
 
     return(
-        <p>You have successfully logged out</p>
+        <p className='form'>You have successfully logged out</p>
     );
    
 };

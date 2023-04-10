@@ -1,16 +1,22 @@
-#title {
+.project-title {
     font-size: 24px;
     font-weight: bold;
-    margin: 50px;
+    margin-left:50px;
+    margin-right:50px;
   }
   
-#image {
-    width: 600px;
-    height: auto;
-    margin: 50px;
-    /* object-fit: contain; */
+.project-image {
+    width: 560px;
+    height: 375px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 100px;
     max-width: 100%;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-around; */
+}
+
+.project-card {
+  margin-right: 10px;
 }

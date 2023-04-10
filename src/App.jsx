@@ -11,7 +11,7 @@ import UsersDetailPage from './pages/UsersDetailPage';
 import CreatedProjectPage from './pages/CreatedProjectPage';
 import PledgePage from './pages/PledgePage';
 import LogoutPage from './pages/LogoutPage';
-import StretchGoalForm from './components/StretchGoalForm';
+import StretchGoalCreation from './pages/StretchGoalCreation';
 import StretchGoalPage from './pages/StretchGoalPage';
 import InstructionsPage from './pages/InstructionsPage';
 import CreateNewUser from './components/CreateNewUserForm';
@@ -68,7 +68,7 @@ const router = createBrowserRouter([
         element: <InstructionsPage />,
       },
       {
-        path: '/pledges',
+        path: '/pledges/:id',
         element: <PledgePage />,
       },
       {
@@ -76,11 +76,11 @@ const router = createBrowserRouter([
         element: <LogoutPage />,
       },
       {
-        path: '/stretch_goals/',
-        element: <StretchGoalForm />,
+        path: '/stretch_goals',
+        element: <StretchGoalCreation />,
       },
       {
-        path: '/stretch_goals/:id/',
+        path: '/stretch_goals',
         element: <StretchGoalPage/>,
       },
       {

@@ -52,7 +52,7 @@ const putData = async () => {
 };
 
     return(
-        <form>
+        <form className="form">
             <h3>Edit your project</h3>
             <div>
                 <label htmlFor="title">Title:</label>

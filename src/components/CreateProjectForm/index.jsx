@@ -50,8 +50,8 @@ const postData = async () => {
 };
 
     return(
-        <form>
-            <div>
+        <form className="form">
+            <div className="field-design">
                 <label htmlFor="title">Title:</label>
                 <input onChange={handleChange} type = "text" id="title" placeholder="Enter title"></input> 
             </div>

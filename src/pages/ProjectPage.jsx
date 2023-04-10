@@ -54,12 +54,12 @@ function ProjectPage() {
 
     const handleSubmitPledge = (event) => {
         event.preventDefault();
-        navigate('/pledges');
+        navigate(`/pledges/${id}`);
     };
 
     const handleSubmitStretchGoal = (event) => {
         event.preventDefault();
-        navigate('/stretch_goals');
+        navigate(`/stretch_goals`);
     };
 
     const handleSeeStretchGoal = (event) => {
@@ -77,20 +77,29 @@ function ProjectPage() {
     //     navigate(`/projects/${id}`);
     // };
 
+    const formatDate = (dateString) => {
+        const options = { year: "numeric", month: "short", day: "numeric" }
+        return new Date(dateString).toLocaleDateString(undefined, options)
+    }
+
+    const formatNumber = (goal, stretchgoal_trigger,total_pledge_amount) => {
+        return new Number(goal, stretchgoal_trigger,total_pledge_amount).toLocaleString(undefined)
+    }
 
     return (
         <div className="project-info">
             <h2> {projectData.title}</h2>
-            <h3>Project ID: {projectData.id} <br></br><i>Note Project ID as you will need this to make a pledge.</i></h3>
+            {/* <h3>Project ID: {projectData.id} <br></br><i>Note Project ID as you will need this to make a pledge.</i></h3> */}
             <h3>Description: {projectData.description}</h3>
-            <h3>Created at: {projectData.date_created}</h3>
-            <h3>Owner: {projectData.owner}</h3>
+            <h3>Created on: {formatDate(projectData.date_created)}</h3>
+            {/* <h3>Owner: {projectData.owner}</h3> */}
             {/* <h3>Favourite: {`Status: ${projectData.favourite}`}</h3> */}
             {/* <h3>Image: {projectData.image}</h3> */}
-            <h3>Funding goal: {projectData.goal}</h3>
-            <h3>How much needs to be raised for pledgee stretch goal to be unlocked!!! {projectData.stretchgoal_trigger}</h3>
-            <h3>Total pledged amount: {projectData.total_pledge_amount}</h3>
-            <h3>Funding reached: {`${projectData.funding_reached}`}</h3>
+            <h3>Funding goal: ${formatNumber(projectData.goal)}</h3>
+            <h3>How much needs to be raised for pledgee stretch goal to be unlocked: ${formatNumber(projectData.stretchgoal_trigger)}</h3>
+            <h3>Total pledged amount: ${formatNumber(projectData.total_pledge_amount)}</h3>
+            <h3>Funding reached: {projectData.funding_reached ? "yes" : "no"}</h3>
+            {/* <h3>Funding reached: {`if ${projectData.funding_reached} === true, return "yes"`}</h3> */}
             {/* <h3>Created at: {projectData.date_created}</h3> */}
             {/* <h3>{`Status: ${projectData.is_open}`}</h3> */}
             <h3>Pledges:</h3>
@@ -102,7 +111,7 @@ function ProjectPage() {
             <div>
                 <button className="stretchGoal" type="submit" onClick={handleSeeStretchGoal}>See all the stretch goal here</button>
                 <p>For pledgees only</p>
-                <button className="pledgee-button" type="submit" onClick={handleSubmitPledge}>Step1: Make your pledge! <i>*Project ID is required</i></button>
+                <button className="pledgee-button" type="submit" onClick={handleSubmitPledge}>Step1: Make your pledge!</button>
                 <button className="pledgee-button" type="submit" onClick={handleSubmitStretchGoal}>Step 2: Submit your stretch goal! <i>*Pledge ID is required</i></button>
                 <p>For the boardgame project creator only</p>
                 <button className="creator-button" type="submit" onClick={editProject}>Edit your project</button>

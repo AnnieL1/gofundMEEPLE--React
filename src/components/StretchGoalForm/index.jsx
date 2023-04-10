@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 // import { Alert } from 'react-native';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 
 //ToastContainer is an inbuilt library which can be used to make pop up alerts for an OnClick or OnSubmit
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 
 
-const StretchGoalForm = () => {
+const StretchGoalForm = (props) => {
+    const {id} = props;
     const [stretchGoal, setStretchGoal] = useState({
         pledge: '',
         fanbased_stretchgoal: '',
+        project: id,
     });
 
     const handleChange = (event) => {
@@ -34,9 +36,9 @@ const StretchGoalForm = () => {
                 alert(response.error)
             }
             else {
-                alert("your fanbase goal has been submitted")
+                alert('your fanbase goal has been submitted.')
             };
-        navigate('/')
+        navigate(`/`)
         })
     }
 
@@ -60,7 +62,7 @@ const StretchGoalForm = () => {
     return(
         <div>
             {/* <ToastContainer /> */} 
-            <form>
+            <form className="form">
                 <div>
                     <label htmlFor="pledge">Pledge:</label>
                     <input onChange={handleChange} type = "pledge" id="pledge" placeholder="Enter pledge"></input> 

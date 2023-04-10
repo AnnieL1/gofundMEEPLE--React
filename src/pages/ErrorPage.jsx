@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 const ErrorPage = () => {
     return (
-        <div>
-            <h3>Oh no .. this page does not exist</h3>
-            <img id="logo" src="/image/404ErrorPage.png" alt="404 Error Page image" />
-            <p>Click here to go back to the <Link to="/">homepage</Link></p>
+        <div className='form'>
+            <h3>Oh no .. time has gotten away from me and this page is currently a work in progress :( </h3>
+            <h3>Go back to the <Link to="/">homepage</Link> </h3>
+            <img className='error-page-drawing' src="/image/404ErrorPage.png" alt="404 Error Page image" />
         </div>
 
 )}

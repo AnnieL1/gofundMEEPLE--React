@@ -28,7 +28,7 @@ function UsersDetailPage() {
             <h3>ID: {usersData.id}</h3>
             <h3>Username: {usersData.username}</h3>
             <h3>Email: {usersData.email}</h3>
-            <h3>{`Status: ${usersData.is_active}`}</h3>
+            {/* <h3>{`Status: ${usersData.is_active}`}</h3> */}
             {/* <a href="`${import.meta.env.VITE_API_URL}users/${id}`" target="_blank">
                 <button type="submit"> Create a new project! </button>
             </a> */}
